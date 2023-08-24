@@ -10,29 +10,29 @@ const Controls = ({ data }) => {
   const swiper = useSwiper();
 
   useEffect(() => {
-    swiper.slideTo(0,500);
-  }, [data,swiper]);
+    swiper.slideTo(0, 500);
+  }, [data, swiper]);
 
   return <></>;
 };
 
-const Carousel = ({data,renderCardComponent}) => {
-    console.log(data)
+const Carousel = ({ data, renderCardComponent }) => {
+  console.log(data);
   return (
     <div className={styles.wrapper}>
       <Swiper
         initialSlide={0}
         modules={{ Navigation }}
-        slidesPerView={7}
+        slidesPerView="auto"
         spaceBetween={40}
         allowTouchMove
       >
         <Controls data={data} />
-        <CarouselLeftNavigation/>
-        <CarouselRightNavigation/>
-     
-        {data.map((item)  => (
-            <SwiperSlide>{renderCardComponent(item)}</SwiperSlide>
+        <CarouselLeftNavigation />
+        <CarouselRightNavigation />
+
+        {data.map((item) => (
+          <SwiperSlide>{renderCardComponent(item)}</SwiperSlide>
         ))}
       </Swiper>
     </div>

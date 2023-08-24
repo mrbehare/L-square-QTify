@@ -3,22 +3,27 @@ import { CircularProgress } from "@mui/material";
 import Card from "../Card/Card";
 import styles from "./Section.module.css";
 import Carousel from "../Carousel/Carousel";
+import BasicTabs from "../BasicTabs/BasicTabs";
 
-const Section = ({ title, data, type }) => {
+const Section = ({ title, data, type ,handleChange,value,songGenreData}) => {
   const [carouselToggle, setCarouselToggle] = useState(true);
 
+ 
   const handleToggle = () => {
-    setCarouselToggle(!carouselToggle);
+    setCarouselToggle((prevState) => !prevState);
   };
 
   return (
-    <div>
+    <div className={styles.Section}>
       <div className={styles.header}>
         <h3> {title}</h3>
         <h4 className={styles.textToggle} onClick={handleToggle}>
-          {carouselToggle ? "Show All " : "Collapse All"}
+        {type!=="song" && (carouselToggle ? "Show All" : "Colapse")}
         </h4>
       </div>
+      {
+        type==="song" && <BasicTabs handleChange={handleChange} value={value} songGenreData={songGenreData} />
+      }
       {data.length === 0 ? (
         <CircularProgress />
       ) : (

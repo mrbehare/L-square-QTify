@@ -19,3 +19,8 @@ flex-wrap: wrap;
 cursor: pointer;
 color: var(--color-primary);
 }
+
+.Section{
+    border-bottom: 1px solid var(--color-primary);
+    padding-bottom: 1rem !important;
+}
