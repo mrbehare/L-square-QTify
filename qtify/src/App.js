@@ -91,7 +91,7 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar />
+      <Navbar  data={[...topAlbumsData,...newAlbumsData]}/>
       <Hero />
       <div className={styles.sectionWrapper}>
         <Section type="album" title="Top Albums" data={topAlbumsData} />
